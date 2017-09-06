@@ -1,3 +1,5 @@
+using ClassDemo.Models;
+
 namespace ClassDemo.Migrations
 {
     using System;
@@ -27,6 +29,12 @@ namespace ClassDemo.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Students.AddOrUpdate(
+                s => s.IHateTylerId,
+                new Student {  FirstName = "Tyler", LastName = "Blake", BirthDay = DateTime.Now.AddYears(-25), TotalCreditHours = 250},
+                new Student {  FirstName = "Corey", LastName = "Cooley", BirthDay = DateTime.Now.AddYears(-27).AddDays(2).AddMonths(-5), TotalCreditHours = 108}
+                );
         }
     }
 }
